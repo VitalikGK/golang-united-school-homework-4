@@ -27,7 +27,7 @@ var (
 // Use the errors defined above as described, again wrapping into fmt.Errorf
 
 func StringSum(input string) (output string, err error) {
-	//input := " 5 + 3 +6 -2    "
+	//input := " 53f + 3c +6 -2    "
 
 	//fmt.Println("Test string", x)
 
@@ -39,14 +39,14 @@ func StringSum(input string) (output string, err error) {
 	//fmt.Printf("Type=%T?, Len=%d", n, len(n))
 	res := regexp.MustCompile(`[\\+\\-]*[^0-9]+`)
 	fmt.Println(res.FindAllString(input, -1))
-	n0 := res.FindAllString(input, -1)
+	//n0 := res.FindAllString(input, -1)
 
-	if len(n) == 0 || len(n0) > 0 {
+	if len(n) == 0 { //|| len(n0) > 0 {
 		err := fmt.Errorf("\n Ошибка пустое значение: %w", errorEmptyInput)
 		fmt.Println(err.Error())
 		return "", err
 	}
-	if len(n) > 2 {
+	if len(n) > 1 {
 		err := fmt.Errorf("\n Ошибка введено больше двух значений: %w", errorNotTwoOperands)
 		fmt.Println(err.Error())
 		return "", err
