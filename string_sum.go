@@ -43,12 +43,12 @@ func StringSum(input string) (output string, err error) {
 	if len(n) == 0 || len(n0) > 0 {
 		err := fmt.Errorf("\n Ошибка пустое значение: %w", errorEmptyInput)
 		fmt.Println(err.Error())
-		return " ", err
+		return "", err
 	}
 	if len(n) > 2 {
 		err := fmt.Errorf("\n Ошибка введено больше двух значений: %w", errorNotTwoOperands)
 		fmt.Println(err.Error())
-		return " ", err
+		return "", err
 	}
 	var y int = 0
 	for r := 0; r < len(n); r++ {
@@ -56,7 +56,7 @@ func StringSum(input string) (output string, err error) {
 		if err != nil {
 			err = fmt.Errorf("%w", err)
 			fmt.Println(err.Error())
-			return " ", err
+			return "", err
 		}
 		//fmt.Printf("%T \t %v \n", y0, y0)
 		y = y + y0
