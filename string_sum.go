@@ -45,7 +45,7 @@ func StringSum(input string) (output string, err error) {
 		if err != nil {
 			err := fmt.Errorf("\n Ошибка не числовое значение: %w", errorEmptyInput)
 			fmt.Println(err.Error())
-			return
+			return "", err
 		}
 
 	if len(n) == 0 { //|| len(n0) > 0 {
