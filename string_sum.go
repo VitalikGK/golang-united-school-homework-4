@@ -40,7 +40,7 @@ func StringSum(input string) (output string, err error) {
 	res := regexp.MustCompile(`[\\+\\-]*[^0-9]+`)
 	//fmt.Println(res.FindAllString(input, -1))
 	n0 := res.FindAllString(input, -1)
-	if len(n) == 0 || len(n0) > 0 {
+	if len(n) == 0 && len(n0) > 0 {
 		err := fmt.Errorf("\n Ошибка пустое значение: %w", errorEmptyInput)
 		fmt.Println(err.Error())
 		return "", err
@@ -51,8 +51,8 @@ func StringSum(input string) (output string, err error) {
 		return "", err
 	}
 	var y int = 0
-	for r := 0; r < len(n); r++ {
-		y0, err := strconv.Atoi(n[r])
+	for _, r := range n {
+		y0, err := strconv.Atoi(r)
 		if err != nil {
 			err = fmt.Errorf("%w", err)
 			fmt.Println(err.Error())
