@@ -41,13 +41,13 @@ func StringSum(input string) (output string, err error) {
 	fmt.Println(res.FindAllString(input, -1))
 	n0 := res.FindAllString(input, -1)
 	if len(n) == 1 && len(n0) > 0 {
-		_, err := strconv.Atoi(x)
+		_, err := strconv.Atoi(input)
 		if err != nil {
 			err := fmt.Errorf("\n Ошибка не числовое значение: %w", errorEmptyInput)
 			fmt.Println(err.Error())
 			return "", err
 		}
-
+	}
 	if len(n) == 0 { //|| len(n0) > 0 {
 		err := fmt.Errorf("\n Ошибка пустое значение: %w", errorEmptyInput)
 		fmt.Println(err.Error())
