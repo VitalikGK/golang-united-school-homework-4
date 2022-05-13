@@ -37,7 +37,11 @@ func StringSum(input string) (output string, err error) {
 	//fmt.Println(re.FindAllString(x, -1))
 	n := re.FindAllString(input, -1)
 	//fmt.Printf("Type=%T?, Len=%d", n, len(n))
-	if len(n) == 0 {
+	res := regexp.MustCompile(`[\\+\\-]*[^0-9]+`)
+	fmt.Println(res.FindAllString(input, -1))
+	n0 := res.FindAllString(input, -1)
+
+	if len(n) == 0 || len(n0) > 0 {
 		err := fmt.Errorf("\n Ошибка пустое значение: %w", errorEmptyInput)
 		fmt.Println(err.Error())
 		return "", err
