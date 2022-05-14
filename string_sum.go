@@ -31,8 +31,8 @@ func StringSum(input string) (output string, err error) {
 
 	//fmt.Println("Test string", x)
 	if input == "" {
-		_, e := strconv.Atoi(input)
-		err := fmt.Errorf("bad token nil. %w", e)
+		//_, e := strconv.Atoi(input)
+		err := fmt.Errorf("bad token nil. %w", errorEmptyInput)
 		fmt.Println(err.Error())
 		return "", err
 	}
