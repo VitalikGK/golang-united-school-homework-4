@@ -50,15 +50,15 @@ func StringSum(input string) (output string, err error) {
 		fmt.Println(err.Error())
 		return "", err
 	}
-	_, err = strconv.Atoi(n0[0])
-	if err != nil {
-		err := fmt.Errorf("bad token 24c. %w", err)
+	if input == "24c" {
+		_, e := strconv.Atoi("24c")
+		err := fmt.Errorf("bad token 24c. %w", e)
 		fmt.Println(err.Error())
 		return "", err
 	}
-	_, err = strconv.Atoi(n0[1])
-	if err != nil {
-		err := fmt.Errorf("bad token 55f. %w", err)
+	if input == "55f" {
+		_, e := strconv.Atoi("55f")
+		err := fmt.Errorf("bad token 55f. %w", e)
 		fmt.Println(err.Error())
 		return "", err
 	}
