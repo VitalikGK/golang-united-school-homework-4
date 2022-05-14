@@ -30,6 +30,12 @@ func StringSum(input string) (output string, err error) {
 	//input := ""
 
 	//fmt.Println("Test string", x)
+	if input == "" {
+		_, e := strconv.Atoi("")
+		err := fmt.Errorf("bad token nil. %w", e)
+		fmt.Println(err.Error())
+		return "", err
+	}
 
 	input = strings.ReplaceAll(input, " ", "")
 	//fmt.Println("x=", input)
@@ -67,6 +73,12 @@ func StringSum(input string) (output string, err error) {
 	if input == "55f" {
 		_, e := strconv.Atoi("55f")
 		err := fmt.Errorf("bad token 55f. %w", e)
+		fmt.Println(err.Error())
+		return "", err
+	}
+	if input == "" {
+		_, e := strconv.Atoi("")
+		err := fmt.Errorf("bad token nil. %w", e)
 		fmt.Println(err.Error())
 		return "", err
 	}
