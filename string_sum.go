@@ -31,7 +31,7 @@ func StringSum(input string) (output string, err error) {
 
 	//fmt.Println("Test string", x)
 	if input == "" {
-		_, e := strconv.Atoi("")
+		_, e := strconv.Atoi(input)
 		err := fmt.Errorf("bad token nil. %w", e)
 		fmt.Println(err.Error())
 		return "", err
@@ -76,13 +76,13 @@ func StringSum(input string) (output string, err error) {
 		fmt.Println(err.Error())
 		return "", err
 	}
-	if input == "" {
-		_, e := strconv.Atoi("")
-		err := fmt.Errorf("bad token nil. %w", e)
-		fmt.Println(err.Error())
-		return "", err
-	}
-	var y int = 0
+	/* 	if input == "" {
+	   		_, e := strconv.Atoi("")
+	   		err := fmt.Errorf("bad token nil. %w", e)
+	   		fmt.Println(err.Error())
+	   		return "", err
+	   	}
+	*/var y int = 0
 	for _, r := range n {
 		y0, err := strconv.Atoi(r)
 		if err != nil {
