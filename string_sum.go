@@ -40,12 +40,20 @@ func StringSum(input string) (output string, err error) {
 	res := regexp.MustCompile(`[\\^+\\^-]*[^0-9]+`)
 	fmt.Println(res.FindAllString(input, -1))
 	n0 := res.FindAllString(input, -1)
+	res0 := regexp.MustCompile(`[\+\-]+`)
+	fmt.Println(res0.FindAllString(x, -1))
+	n1 := res0.FindAllString(x, -1)
 	if len(n) == 0 && len(n0) > 0 {
 		err := fmt.Errorf("\n Ошибка пустое значение: %w", errorEmptyInput)
 		fmt.Println(err.Error())
 		return "", err
 	}
 	if len(n) > 2 {
+		err := fmt.Errorf("\n Ошибка введено больше двух значений: %w", errorNotTwoOperands)
+		fmt.Println(err.Error())
+		return "", err
+	}
+	if len(n1) > 2 {
 		err := fmt.Errorf("\n Ошибка введено больше двух значений: %w", errorNotTwoOperands)
 		fmt.Println(err.Error())
 		return "", err
