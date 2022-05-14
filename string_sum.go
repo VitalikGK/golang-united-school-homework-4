@@ -41,8 +41,8 @@ func StringSum(input string) (output string, err error) {
 	fmt.Println(res.FindAllString(input, -1))
 	n0 := res.FindAllString(input, -1)
 	res0 := regexp.MustCompile(`[\+\-]+`)
-	fmt.Println(res0.FindAllString(x, -1))
-	n1 := res0.FindAllString(x, -1)
+	fmt.Println(res0.FindAllString(input, -1))
+	n1 := res0.FindAllString(input, -1)
 	if len(n) == 0 && len(n0) > 0 {
 		err := fmt.Errorf("\n Ошибка пустое значение: %w", errorEmptyInput)
 		fmt.Println(err.Error())
