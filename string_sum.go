@@ -99,3 +99,12 @@ func StringSum(input string) (output string, err error) {
 	//fmt.Printf("output=  %v Type = %T \n", output, output)
 
 }
+
+func main() {
+	input := "+5+3"
+	output, err := StringSum(input)
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	fmt.Printf("output=  %v Type = %T \n", output, output)
+}
