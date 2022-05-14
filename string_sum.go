@@ -54,6 +54,11 @@ func StringSum(input string) (output string, err error) {
 		fmt.Println(err.Error())
 		return "", err
 	}
+	if len(n) == 1 && len(n0) > 0 {
+		err := fmt.Errorf("\n Ошибка одно значение: %w", errorEmptyInput)
+		fmt.Println(err.Error())
+		return "", err
+	}
 	if len(n) > 2 {
 		err := fmt.Errorf("\n Ошибка введено больше двух значений: %w", errorNotTwoOperands)
 		fmt.Println(err.Error())
