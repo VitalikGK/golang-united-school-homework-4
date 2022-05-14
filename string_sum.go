@@ -27,22 +27,15 @@ var (
 // Use the errors defined above as described, again wrapping into fmt.Errorf
 
 func StringSum(input string) (output string, err error) {
-	//input := ""
-
-	//fmt.Println("Test string", x)
 	if input == "" {
-		//_, e := strconv.Atoi(input)
 		err := fmt.Errorf("bad token nil. %w", errorEmptyInput)
 		fmt.Println(err.Error())
 		return "", err
 	}
 
 	input = strings.ReplaceAll(input, " ", "")
-	//fmt.Println("x=", input)
 	re := regexp.MustCompile(`[\\+\\-]*[0-9]+`)
-	//fmt.Println(re.FindAllString(input, -1))
 	n := re.FindAllString(input, -1)
-	//fmt.Printf("Type=%T?, Len=%d", n, len(n))
 	res := regexp.MustCompile(`[\\^+\\^-]*[^0-9]+`)
 	fmt.Println(res.FindAllString(input, -1))
 	n0 := res.FindAllString(input, -1)
@@ -56,8 +49,11 @@ func StringSum(input string) (output string, err error) {
 	}
 	if len(n) == 1 && len(n0) > 0 {
 		err := fmt.Errorf("\n Ошибка одно значение: %w", errorEmptyInput)
-		fmt.Println(err.Error())
-		return "", err
+		if err != nil {
+			fmt.Println(err.Error())
+			return "", err
+		}
+
 	}
 	if len(n) > 2 {
 		err := fmt.Errorf("\n Ошибка введено больше двух значений: %w", errorNotTwoOperands)
@@ -81,13 +77,7 @@ func StringSum(input string) (output string, err error) {
 		fmt.Println(err.Error())
 		return "", err
 	}
-	/* 	if input == "" {
-	   		_, e := strconv.Atoi("")
-	   		err := fmt.Errorf("bad token nil. %w", e)
-	   		fmt.Println(err.Error())
-	   		return "", err
-	   	}
-	*/var y int = 0
+	var y int = 0
 	for _, r := range n {
 		y0, err := strconv.Atoi(r)
 		if err != nil {
@@ -95,13 +85,10 @@ func StringSum(input string) (output string, err error) {
 			fmt.Println(err.Error())
 			return "", err
 		}
-		//fmt.Printf("%T \t %v \n", y0, y0)
 		y = y + y0
 	}
-	//fmt.Printf("sum=  %v \n", y)
 	output = strconv.Itoa(y)
 	return output, nil
-	//fmt.Printf("output=  %v Type = %T \n", output, output)
 
 }
 
