@@ -42,7 +42,7 @@ func StringSum(input string) (output string, err error) {
 	res0 := regexp.MustCompile(`[\+\-]+`)
 	fmt.Println(res0.FindAllString(input, -1))
 	n1 := res0.FindAllString(input, -1)
-	res1 := regexp.MustCompile(`[a-zA-Zа-яА-Я]+`)
+	res1 := regexp.MustCompile(`[0-9]+[a-zA-Zа-яА-Я]+`)
 	fmt.Println("n2=", res1.FindAllString(input, -1))
 	n2 := res1.FindAllString(input, -1)
 	if len(n) == 0 && len(n0) > 0 {
