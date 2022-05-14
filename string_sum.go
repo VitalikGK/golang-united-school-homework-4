@@ -42,6 +42,9 @@ func StringSum(input string) (output string, err error) {
 	res0 := regexp.MustCompile(`[\+\-]+`)
 	fmt.Println(res0.FindAllString(input, -1))
 	n1 := res0.FindAllString(input, -1)
+	res1 := regexp.MustCompile(`[a-zA-Zа-яА-Я]+`)
+	fmt.Println("n2=", res1.FindAllString(input, -1))
+	n2 := res1.FindAllString(input, -1)
 	if len(n) == 0 && len(n0) > 0 {
 		err := fmt.Errorf("\n Ошибка пустое значение: %w", errorEmptyInput)
 		fmt.Println(err.Error())
@@ -65,18 +68,28 @@ func StringSum(input string) (output string, err error) {
 		fmt.Println(err.Error())
 		return "", err
 	}
-	if input == "24c+55" {
-		_, e := strconv.Atoi("24c")
-		err := fmt.Errorf("bad token 24c. %w", e)
-		fmt.Println(err.Error())
-		return "", err
+	/* 	if input == "24c+55" {
+	   		_, e := strconv.Atoi("24c")
+	   		err := fmt.Errorf("bad token 24c. %w", e)
+	   		fmt.Println(err.Error())
+	   		return "", err
+	   	}
+	   	if input == "24+55f" {
+	   		_, e := strconv.Atoi("55f")
+	   		err := fmt.Errorf("bad token 55f. %w", e)
+	   		fmt.Println(err.Error())
+	   		return "", err
+	   	}
+	*/
+	if len(n2) > 0 {
+		_, e := strconv.Atoi(n2[0])
+		err := fmt.Errorf("bad token. %w", e)
+		if err != nil {
+			fmt.Println(err.Error())
+			return "", err
+		}
 	}
-	if input == "24+55f" {
-		_, e := strconv.Atoi("55f")
-		err := fmt.Errorf("bad token 55f. %w", e)
-		fmt.Println(err.Error())
-		return "", err
-	}
+
 	var y int = 0
 	for _, r := range n {
 		y0, err := strconv.Atoi(r)
