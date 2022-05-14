@@ -105,7 +105,7 @@ func StringSum(input string) (output string, err error) {
 
 }
 
-func main() {
+/* func main() {
 	input := "+5+3"
 	output, err := StringSum(input)
 	if err != nil {
@@ -113,3 +113,4 @@ func main() {
 	}
 	fmt.Printf("output=  %v Type = %T \n", output, output)
 }
+*/
