@@ -64,7 +64,7 @@ func StringSum(input string) (output string, err error) {
 		fmt.Println(err.Error())
 		return "", err
 	}
-	if _, err := strconv.ParseInt(x, 0, 64); err != nil {
+	if _, err := strconv.ParseInt(input, 0, 64); err != nil {
 		e := err.(*strconv.NumError)
 		fmt.Println("Func:", e.Func)
 		fmt.Println("Num:", e.Num)
@@ -85,7 +85,8 @@ func StringSum(input string) (output string, err error) {
 	   		fmt.Println(err.Error())
 	   		return "", err
 	   	}
-	*/var y int = 0
+	*/
+	var y int = 0
 	for _, r := range n {
 		y0, err := strconv.Atoi(r)
 		if err != nil {
