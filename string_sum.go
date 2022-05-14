@@ -64,10 +64,13 @@ func StringSum(input string) (output string, err error) {
 		fmt.Println(err.Error())
 		return "", err
 	}
-	if input == "24c" {
-		_, e := strconv.Atoi("24c")
-		err := fmt.Errorf("bad token 24c. %w", e)
-		fmt.Println(err.Error())
+	if _, err := strconv.ParseInt(x, 0, 64); err != nil {
+		e := err.(*strconv.NumError)
+		fmt.Println("Func:", e.Func)
+		fmt.Println("Num:", e.Num)
+		fmt.Println("Err:", e.Err)
+		fmt.Println(err)
+
 		return "", err
 	}
 	if input == "55f" {
